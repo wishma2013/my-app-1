@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom'
 
 import FCCounterUsage from '../components/fc-counter.usage';
 // import FCSpreadAttributesUsage from '../components/fc-spread-attributes.usage';
@@ -12,7 +13,9 @@ import FCCounterUsage from '../components/fc-counter.usage';
 export default () => {
   return (
     <section>
+      <Link to="c" >to c</Link>
       <FCCounterUsage />
+      
       {/* <FCSpreadAttributesUsage />
       <ClassCounterUsage />
       <ClassCounterWithDefaultPropsUsage />
