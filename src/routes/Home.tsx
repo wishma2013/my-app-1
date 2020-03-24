@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom'
 
-import FCCounterUsage from '../components/fc-counter.usage';
+// import FCCounterUsage from '../components/fc-counter.usage';
 // import FCSpreadAttributesUsage from '../components/fc-spread-attributes.usage';
 // import ClassCounterUsage from '../components/class-counter.usage';
 // import ClassCounterWithDefaultPropsUsage from '../components/class-counter-with-default-props.usage';
@@ -10,11 +10,12 @@ import FCCounterUsage from '../components/fc-counter.usage';
 // import WithStateUsage from '../hoc/with-state.usage';
 // import WithConnectedCountUsage from '../hoc/with-connected-count.usage';
 
+import { Login } from '../pages/Login'
 export default () => {
   return (
     <section>
-      <Link to="c" >to c</Link>
-      <FCCounterUsage />
+      {/* <FCCounterUsage /> */}
+      <Login label="我是label" count={11} />
       
       {/* <FCSpreadAttributesUsage />
       <ClassCounterUsage />

@@ -3,7 +3,7 @@ import { History } from 'history';
 
 import { connectRouter } from 'connected-react-router';
 // import todosReducer from '../features/todos/reducer';
-// import countersReducer from '../features/counters/reducer';
+// import countersReducer from '../components/Counter/reducer';
 
 const rootReducer = (history: History) => combineReducers({
   router: connectRouter(history),

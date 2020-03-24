@@ -1,18 +1,22 @@
 import React from 'react';
-import {view as Counter, stateKey, reducer} from '../components/Counter';
+import { FCCounter } from '../components/fc-counter'
+
 
 const page = () => {
+
+  var   state  = 12
+
   return (
     <div>
       <div>Counter</div>
-      <Counter value={0} />
+      <FCCounter label="我是label" count={state} onIncrement={()=>state+1}/>
     </div>
   );
 };
 
 // const END_POINT = process.env.HOST_NAME || 'localhost:9000';
 
-const initState = () => {
+const initState = ():number => {
   // return fetch(`http://${END_POINT}/api/count`).then(response => {
   //   if (response.status !== 200) {
   //     throw new Error('Fail to fetch count');
@@ -24,4 +28,4 @@ const initState = () => {
   return 100;
 }
 
-export {page, reducer, initState, stateKey};
+export {page};

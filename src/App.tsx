@@ -7,7 +7,6 @@ import logo from './logo.svg';
 import './App.css';
 import store, { history }  from './store';
 import Home from './routes/Home';
-import Counter from './routes/Counter';
 
 import loadable from '@loadable/component'
 
@@ -21,9 +20,31 @@ type AsyncPageModule = {
   stateKey: string;
   initState: () => void;
 }
-const win = window;
 
-const AsyncPage = loadable((props: AsyncPageProp) => import(/* webpackChunkName: "AsyncPage" */`./pages/${props.page}`).then(({page, reducer, initState, stateKey}) => page), {
+const AsyncPage = loadable((props: AsyncPageProp) => 
+  import(/* webpackChunkName: "AsyncPage_" */`./pages/${props.page}`)
+.then(
+  ({page, reducer, initState, stateKey}) => {
+      
+      // const dehydratedState = (win && win.DEHYDRATED_STATE);
+      const state = store.getState();
+      console.log(reducer, state);
+      // const mergedState = {...dehydratedState, ...state};
+      const mergedState = state;
+      // const statePromise = state[stateKey]
+      //   ? Promise.resolve(mergedState[stateKey])
+      //   : initState();
+        // const statePromise = initState();
+      // statePromise.then((result:{}) => {
+      //   store.replaceReducer(combineReducers({
+      //     // ...store._reducers,
+      //     [stateKey]: reducer
+      //   }));
+      // })
+    return page;
+  }
+  )
+, {
   cacheKey: props => props.page,
 });
 
@@ -104,14 +125,12 @@ function App() {
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-      <img src={logo} className="App-logo" alt="logo" />
         <>{ /* your usual react-router v4/v5 routing */ }
         <Route exact path="/" component={Home} />
         {/* <Route path="/c" component={Counter} /> */}
-        <Route path="/c" >
+        {/* <Route path="/c" >
             <AsyncPage page='CounterPage'/>
-            {/* <LoadCounter props="0"/> */}
-        </Route>
+        </Route> */}
         </>
       </ConnectedRouter>
     </Provider>

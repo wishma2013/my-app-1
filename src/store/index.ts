@@ -1,5 +1,5 @@
 import { RootAction, RootState, Services } from 'MyTypes';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware as createRouterMiddleware } from 'connected-react-router';
@@ -15,20 +15,20 @@ import resetEnhancer from '../enhancer/reset.js';
 // browser history
 export const history = createBrowserHistory();
 
-// export const epicMiddleware = createEpicMiddleware<
-//   RootAction,
-//   RootAction,
-//   RootState,
-//   Services
-// >({
-//   dependencies: services,
-// });
+export const epicMiddleware = createEpicMiddleware<
+  RootAction,
+  RootAction,
+  RootState,
+  Services
+>({
+  dependencies: services,
+});
 
 const routerMiddleware = createRouterMiddleware(history);
 
 // configure middlewares
-// const middlewares = [epicMiddleware, routerMiddleware];
-const middlewares = [routerMiddleware];
+const middlewares = [epicMiddleware, routerMiddleware];
+// const middlewares = [routerMiddleware];
 // compose enhancers
 const enhancer = composeEnhancers(resetEnhancer, applyMiddleware(...middlewares));
 

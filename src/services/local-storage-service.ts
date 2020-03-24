@@ -1,5 +1,7 @@
-const version = process.env.APP_VERSION;
-const STORAGE_KEY = `__SERIALIZED_STATE_TREE_v${version}__`;
+const conf = require('../../package.json')
+const version = process.env.APP_VERSION || conf.version;
+const name = process.env.REACT_APP_TITLE
+const STORAGE_KEY = `__SERIALIZED_STATE_TREE_v${version}__${name}__`;
 
 export function saveState<T = object>(storeState: T): boolean {
   if (!localStorage) {
