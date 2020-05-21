@@ -1,0 +1,27 @@
+// typings/actor-js.d.ts
+
+declare module 'actor-js' {
+  // export declare namespace actor {
+    // function ActorApp(): actor;
+    // export function create(Config: ActorSettings): actor;
+    // function init(Config:ActorSettings): void;
+  // };
+  // export function create(Config: ActorSettings): actor;
+  // export function create(Config: ActorSettings): typeof ActorApp;
+  interface ActorSettings {
+    endpoints?: string[];
+    logHandler?: typeof logHandler;
+  };
+    
+      // export type RootAction = ActionType<typeof import('./root-action').default>;
+      // export type RootState = StateType<ReturnType<typeof import('./root-reducer').default>>;
+  function logHandler(tag: string, type: string, message: string): void;
+
+  declare function create(Config: ActorSettings): TypeForActorApp;
+  export interface TypeForActorApp {
+    ActorApp() : TypeForActorApp;
+    init(Config:ActorSettings): TypeForActorApp;
+  }
+    
+}
+
