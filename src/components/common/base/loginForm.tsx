@@ -43,9 +43,11 @@ export class LoginForm extends React.Component<Props, State> {
                         <div className="w3ls-bot">
                             <input type="submit" value="LOGIN"/>
                         </div>
-                        
+                        <div className="w3ls-bot">
+                            <button className="button button--rised button--width" type="submit"><span>Request code</span></button>
+                        </div>
                     </form>
-                        <input type="button" value="注册"/>
+                    
                 </div>
                 <div className="copy-wthree">
                     <p>

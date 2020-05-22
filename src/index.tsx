@@ -3,7 +3,7 @@
 import Enter from './enter'
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { endpoints, rootElement, helpPhone, appName } from './constants/ActorAppConstants'
