@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ActorClient from '../../../utils/ActorClient';
 
 export type Props = {
   label: string;
@@ -11,6 +12,7 @@ export type State = {
     label: string;
     count: number;
     onIncrement ?: () => void;
+    login: string;
 };
 
 // 这个组件占据整页 2020-03-24 15:02:23
@@ -19,6 +21,11 @@ export class LoginForm extends React.Component<Props, State> {
   constructor(props: Props){
     super(props);
   }
+
+  onRequestCode = (event:React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    ActorClient.requestCode(this.state.login);
+  };
 
   componentDidUpdate = (prevProps: Props) => {
   }
