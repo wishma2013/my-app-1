@@ -1,5 +1,7 @@
 import * as React from 'react';
 import ActorClient from '../../../utils/ActorClient';
+import { FormattedMessage } from 'react-intl';
+import { appName, AuthSteps } from '../../../constants/ActorAppConstants';
 
 export type Props = {
   label: string;
@@ -52,6 +54,7 @@ export class LoginForm extends React.Component<Props, State> {
                         </div>
                         <div className="w3ls-bot">
                             <button className="button button--rised button--width" type="submit"><span>Request code</span></button>
+                            <FormattedMessage id="login.welcome.copyright" values={{ appName: appName }}/>
                         </div>
                     </form>
                     

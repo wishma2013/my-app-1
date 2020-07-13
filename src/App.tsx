@@ -4,6 +4,12 @@ import { combineReducers } from 'redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route } from 'react-router'
 import logo from './logo.svg';
+import { IntlProvider } from 'react-intl';
+import { extendL18n, getIntlData } from './l18n';
+
+// import parse from 'intl-messageformat-parser';
+
+
 import './App.css';
 import store, { history }  from './store';
 import Home from './routes/Home';
@@ -20,6 +26,13 @@ type AsyncPageModule = {
   stateKey: string;
   initState: () => void;
 }
+
+const intlData = getIntlData();
+
+// const messages = {
+//   ast_simple: parse.parse('hello world'),
+//   ast_var: parse.parse('hello world, {name}'),
+// };
 
 const AsyncPage = loadable((props: AsyncPageProp) => 
   import(/* webpackChunkName: "AsyncPage_" */`./pages/${props.page}`)
@@ -123,6 +136,8 @@ function App() {
   //   </div>
   // );
   return (
+    // <IntlProvider {...intlData}>
+    <IntlProvider  {...intlData}>
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <>{ /* your usual react-router v4/v5 routing */ }
@@ -134,6 +149,7 @@ function App() {
         </>
       </ConnectedRouter>
     </Provider>
+    </IntlProvider>
   );
 }
 
