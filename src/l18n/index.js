@@ -93,6 +93,8 @@ export function getIntlData(locale) {
   const lang = locale ? locale : language;
   const currentLanguage = languageData[lang] || languageData[lang.split('-')[0]] || languageData['default']
 
+  // by eilir 2020-07-13 21:58:42
+  console.log('currentLanguage.locale', currentLanguage.locale)
   return {
     locale: currentLanguage.locale,
     messages: flattenMessages(currentLanguage.messages)

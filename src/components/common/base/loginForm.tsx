@@ -53,15 +53,15 @@ export class LoginForm extends React.Component<Props, State> {
                             <input type="submit" value="LOGIN"/>
                         </div>
                         <div className="w3ls-bot">
-                            <button className="button button--rised button--width" type="submit"><span>Request code</span></button>
-                            <FormattedMessage id="login.welcome.copyright" values={{ appName: appName }}/>
+                            <button className="button button--rised button--width" type="submit"><span><FormattedMessage id="button.requestCode"/></span></button>
+                            
                         </div>
                     </form>
                     
                 </div>
                 <div className="copy-wthree">
                     <p>
-                        Copyright &copy; 2020.MolyTech All rights reserved.
+                    <FormattedMessage id="login.welcome.copyright" values={{ appName: appName }}/>.MolyTech All rights reserved.
       <a target="_blank" rel="noopener noreferrer" href="http://#">{process.env.REACT_APP_TITLE}</a>
                     </p>
                 </div>

@@ -433,7 +433,7 @@ export const endpoints = [
   'wss://ws-mtproto.example.com'
 ];
 
-export const appName = 'Actor';
+export const appName = 'Moly';
 export const rootElement = 'actor-web-app';
 export const helpPhone = '75551234567';
 

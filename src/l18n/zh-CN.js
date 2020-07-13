@@ -14,6 +14,7 @@ export default {
 
     // Buttons
     'button': {
+      'requestCode': '发送验证码',
       'add': '添加',
       'send': '发送',
       'createGroup': '创建群',

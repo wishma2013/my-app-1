@@ -21,7 +21,7 @@ export default {
         'header': 'Welcome to <strong>{appName}</strong>',
         'text': '<p>{appName} Messenger brings all your business network connections into one place.</p>' +
                 '<p>Our goal is making your working process easier, reducing your email load and making the people in business world closer to each other.</p>',
-        'copyright': '{appName} Messenger © 2016'
+        'copyright': '{appName} Messenger © 2020'
       }
     },
 
